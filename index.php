@@ -28,18 +28,41 @@ try {
     // Contenu du mail
     $mail->isHTML(true);
     $mail->Subject = 'FACTURE';
-    $mail->Body    = '<h2>Bonjour Monsieur/Madame,</h2><p>Vous trouverez en pièce jointe, la facture et le bon de commande livré.</p>';
-    //$mail->AltBody = 'Bonjour, bienvenue dans la plateforme de gestion des stagiaires.';
+    $mail->Body = '
+    <html>
+        <body style=" border : 2px solid red;">
+            <h2>Bonjour monsieur le directeur</h2>
+            <p>Bien vouloir cliquer sur ce lien pour confirmer votre inscription</p>
+
+           <p style="text-align : center ;">
+                <a href="https://facebook.com" style="
+                    background-color: blueviolet ; 
+                    color: #ffffff ;
+                    display: inline-block;
+                    text-decoration : none ;
+                    padding : 10px ;
+                    font-weight : bold ;
+                    border-radius: 5px ;
+                    text-align: center ;
+                    ">INSCRIPTION
+                </a>
+           </p>
+
+            <p>A plus !</p>
+
+        </body>
+    </html>';
+    $mail->AltBody = 'Bonjour, bienvenue dans la plateforme de gestion des stagiaires.';
 
     // Ajouter une pièce jointe (PDF, DOCX, etc.)
-    $mail->addAttachment('Doc/BC.pdf');  
-    $mail->addAttachment('Doc/Fac.pdf');  
+    //$mail->addAttachment('Doc/BC.pdf');  
+    //$mail->addAttachment('Doc/Fac.pdf');  
 
     // Tu peux ajouter plusieurs pièces jointes
     // $mail->addAttachment('documents/autre_fichier.docx');
 
     $mail->send();
-    echo "Email avec pièce jointe envoyé avec succès !";
+    echo "Email envoyé avec succès !";
 } catch (Exception $e) {
     echo "Erreur lors de l’envoi : {$mail->ErrorInfo}";
 }
