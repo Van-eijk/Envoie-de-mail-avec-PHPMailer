@@ -12,7 +12,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';      // serveur Gmail
     $mail->SMTPAuth   = true;
     $mail->Username   = 'vaneijkdjeatsa@gmail.com';  // ton email Gmail
-    $mail->Password   = 'jbcv qlnh vxso ppyq'; // mot de passe d'application Google
+    $mail->Password   = ''; // mot de passe d'application Google
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
     $mail->Port       = 587;
 
