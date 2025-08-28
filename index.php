@@ -7,12 +7,17 @@ require 'vendor/autoload.php'; // charge PHPMailer
 $mail = new PHPMailer(true);
 
 try {
+
+    // Encodage UTF-8
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64'; // garantit la bonne transmission des caractères spéciaux
+
     // Configuration serveur SMTP
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';      // serveur Gmail
     $mail->SMTPAuth   = true;
     $mail->Username   = 'vaneijkdjeatsa@gmail.com';  // ton email Gmail
-    $mail->Password   = ''; // mot de passe d'application Google
+    $mail->Password   = 'oigt btyn fpgt edyt'; // mot de passe d'application Google
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
     $mail->Port       = 587;
 
@@ -23,7 +28,7 @@ try {
     // Contenu du mail
     $mail->isHTML(true);
     $mail->Subject = 'FACTURE';
-    $mail->Body    = '<h2>Bonjour Monsieur/Madame,</h2><p>Vous trouverez en pièce jointe, la facture et le bon de commande.</p>';
+    $mail->Body    = '<h2>Bonjour Monsieur/Madame,</h2><p>Vous trouverez en pièce jointe, la facture et le bon de commande livré.</p>';
     //$mail->AltBody = 'Bonjour, bienvenue dans la plateforme de gestion des stagiaires.';
 
     // Ajouter une pièce jointe (PDF, DOCX, etc.)
